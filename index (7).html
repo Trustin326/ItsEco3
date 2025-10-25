@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ItsEco — All Features Live Demo</title>
+<meta name="description" content="Harb Ventures presents ItsEco — The Exclusive CFO Command Center">
+<style>:root{--bg1:#0b1526;--bg2:#1b2a4a;--acc1:#22c55e;--acc2:#0ea5e9;--acc3:#a855f7;--text:#ffffff}
+*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+radial-gradient(1200px 600px at 50% -10%, rgba(14,165,233,.25), transparent 60%),
+radial-gradient(900px 500px at 100% 0%, rgba(168,85,247,.20), transparent 60%),
+linear-gradient(180deg,var(--bg1),var(--bg2))}
+.container{max-width:1200px;margin:0 auto;padding:28px}
+.center{display:flex;align-items:center;justify-content:center;text-align:center}
+.btn{display:inline-block;padding:12px 18px;border-radius:14px;color:#0b1526;font-weight:800;background:linear-gradient(90deg,var(--acc2),var(--acc1));text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.btn-outline{display:inline-block;padding:10px 16px;border-radius:12px;color:#fff;border:1px solid rgba(255,255,255,.35);text-decoration:none}
+.badge{display:inline-block;padding:8px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-size:12px;letter-spacing:.2px;margin-bottom:14px;background:rgba(255,255,255,.05)}
+h1{font-size:46px;line-height:1.05;margin:8px 0 16px}
+h2{margin:0 0 8px}
+.subtitle{color:#dbeafe;font-weight:600;opacity:.9}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0}
+.card{padding:16px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));backdrop-filter: blur(6px)}
+.card h3{margin:0 0 8px}
+.section{padding:40px 20px}
+.footer{padding:24px;text-align:center;color:#93c5fd;font-size:14px}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px}
+.grid-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.input{padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:rgba(19,35,63,.6);color:#fff}
+label{font-weight:600}
+.kpi{font-size:24px;font-weight:800}
+hr{border:0;border-top:1px solid rgba(255,255,255,.15);margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid rgba(255,255,255,.2);padding:6px 8px;text-align:left}
+.match{background:rgba(34,197,94,.25)}
+.small{font-size:12px;opacity:.9}
+</style>
+</head>
+<body>
+<header class="section center" style="padding-top:56px">
+  <div class="container center" style="flex-direction:column">
+    <span class="badge">Harb Ventures presents</span>
+    <h1>ItsEco — The Exclusive CFO Command Center</h1>
+    <p class="subtitle">Polished landing and live demos for <strong>all 8 features</strong>.</p>
+    <div class="nav">
+      <a class="btn" href="#demo-risk">Live Demo</a>
+      <a class="btn-outline" href="#pricing">Pricing</a>
+      <a class="btn-outline" href="#download">Download App</a>
+    </div>
+  </div>
+</header>
+
+<section id="features" class="section">
+  <div class="container">
+    <h2>Features</h2>
+    <div class="cards">
+      <div class="card"><h3>Real-time Cash & Risk</h3><p>Jurisdiction cash, 12‑week runway, VaR & hedge effectiveness, counterparty heatmaps.</p></div>
+      <div class="card"><h3>Scenario Lab</h3><p>Create FX/rates stress tests and simulate operational shocks.</p></div>
+      <div class="card"><h3>BoardPack One‑Click</h3><p>Auto assemble board-grade packs with audit trail & citations.</p></div>
+      <div class="card"><h3>Treasury Autopilot</h3><p>Policy-locked sweeps, laddered T‑bills, and FX netting approvals.</p></div>
+      <div class="card"><h3>Carbon Ledger AI</h3><p>Track ESG metrics, forecast CO₂ exposure, and generate reports.</p></div>
+      <div class="card"><h3>Smart Vendor Reconciliation</h3><p>ML‑powered invoice/payment matching across banks and suppliers.</p></div>
+      <div class="card"><h3>Predictive Liquidity Routing</h3><p>Anticipate entity cash needs and optimize transfers.</p></div>
+      <div class="card"><h3>CFO Copilot Chat</h3><p>Ask “what‑if” questions, get instant insights, and actions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-risk" class="section">
+  <div class="container">
+    <h2>Live Demo — Cash, Risk, & Scenario Lab</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Scenario Controls</h3>
+        <label>EUR FX Move: <span id="fxVal">0%</span></label>
+        <input id="fx" type="range" min="-10" max="10" step="1" value="0" class="input" />
+        <label>Rates Move (bps): <span id="rateVal">0 bps</span></label>
+        <input id="rates" type="range" min="-100" max="100" step="10" value="0" class="input" />
+        <hr/>
+        <a class="btn" id="deckBtn" href="#">Generate Board Deck (Demo)</a>
+        <p class="small">Downloads a text-based demo pack with current KPIs.</p>
+      </div>
+      <div class="card">
+        <h3>KPIs</h3>
+        <div>Cash: <span class="kpi" id="kpi-cash">$–</span></div>
+        <div>Runway: <span class="kpi" id="kpi-runway">–</span></div>
+        <div>VaR (FX): <span class="kpi" id="kpi-var">$–</span></div>
+        <div>Hedge Effectiveness: <span class="kpi" id="kpi-hedge">–</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-autopilot" class="section">
+  <div class="container">
+    <h2>Live Demo — Treasury Autopilot</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Policies</h3>
+        <label><input type="checkbox" id="p-tbills"> Sweep idle USD to T‑Bills</label><br/>
+        <label><input type="checkbox" id="p-ladder"> Ladder duration (1/3/6 months)</label><br/>
+        <label><input type="checkbox" id="p-fxnet"> FX Netting (EUR)</label><br/>
+        <hr/>
+        <button class="btn" id="sweepBtn">Run Sweep</button>
+      </div>
+      <div class="card">
+        <h3>Result</h3>
+        <div id="sweepOut" class="small">No policy selected.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-carbon" class="section">
+  <div class="container">
+    <h2>Live Demo — Carbon Ledger AI</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Inputs</h3>
+        <label>kWh used (monthly)</label>
+        <input id="cl-kwh" type="number" class="input" value="250000" min="0"/>
+        <label>Emission factor (tCO₂e per kWh)</label>
+        <input id="cl-factor" type="number" class="input" step="0.0001" value="0.0004" min="0"/>
+        <label>Offsets (tCO₂e)</label>
+        <input id="cl-offset" type="number" class="input" value="10" min="0"/>
+      </div>
+      <div class="card">
+        <h3>Estimated Footprint</h3>
+        <div id="cl-out" class="kpi">–</div>
+        <p class="small">Demo math: (kWh × factor) − offsets, clipped at zero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-recon" class="section">
+  <div class="container">
+    <h2>Live Demo — Smart Vendor Reconciliation</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Invoices</h3>
+        <table>
+          <thead><tr><th>ID</th><th>Vendor</th><th>Amount</th></tr></thead>
+          <tbody id="inv-body"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Payments</h3>
+        <table>
+          <thead><tr><th>Ref</th><th>Vendor</th><th>Amount</th></tr></thead>
+          <tbody id="pay-body"></tbody>
+        </table>
+        <hr/>
+        <button class="btn" id="matchBtn">Run Match</button>
+        <div id="matchSummary" class="small" style="margin-top:6px">Not matched yet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-liquidity" class="section">
+  <div class="container">
+    <h2>Live Demo — Predictive Liquidity Routing</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Entities</h3>
+        <table>
+          <thead><tr><th>Entity</th><th>Balance</th><th>Forecast Need</th></tr></thead>
+          <tbody id="ent-body"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Optimization</h3>
+        <button class="btn" id="optBtn">Optimize Transfers</button>
+        <p id="optOut" class="small" style="margin-top:6px">No optimization yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo-copilot" class="section">
+  <div class="container">
+    <h2>Live Demo — CFO Copilot Chat</h2>
+    <div class="grid-two">
+      <div class="card">
+        <h3>Ask a question</h3>
+        <input id="ask" class="input" placeholder="e.g., How much runway do we have?" />
+        <button class="btn" id="askBtn" style="margin-top:8px">Ask</button>
+      </div>
+      <div class="card">
+        <h3>Answer</h3>
+        <p id="ans" class="small">Ask about cash, runway, risk, ESG, reconciliation, or liquidity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <div class="container">
+    <h2>Pricing</h2>
+    <div class="cards">
+      <div class="card center"><div>
+        <h3>Bronze — Mid‑Market</h3>
+        <div class="kpi">$75,000 <span class="small">/ year</span></div>
+        <p>Cash dashboard, liquidity reports, basic AI copilot, SSO</p>
+        <a class="btn" href="#download">Choose Bronze</a>
+      </div></div>
+      <div class="card center" style="outline:2px solid rgba(255,255,255,.2)"><div>
+        <h3>Silver — Enterprise</h3>
+        <div class="kpi">$200,000 <span class="small">/ year</span></div>
+        <p>Forecasting, VaR/stress tests, multi-entity ladders, ERP/bank APIs, board-ready exports</p>
+        <a class="btn" href="#download">Choose Silver</a>
+      </div></div>
+      <div class="card center"><div>
+        <h3>Gold — Global Treasury Elite</h3>
+        <div class="kpi">$350,000–$500,000 <span class="small">/ year</span></div>
+        <p>Real-time AI copilot, ESG/compliance, predictive recommendations, 24/7 support</p>
+        <a class="btn" href="#download">Choose Gold</a>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="section">
+  <div class="container center" style="flex-direction:column">
+    <h2>Download the App</h2>
+    <p class="subtitle center">Click the button to download a small offline demo app ZIP.</p>
+    <p class="center" style="margin-top:8px"><a class="btn" download="ItsEco_Offline_App.zip" href="data:application/zip;base64,UEsDBBQAAAAIADyXT1vz3ju/awAAAIQAAAAKAAAAaW5kZXguaHRtbF3JMQ6DMAwAwK+4E1MbdWNwPcHQiTfQ4CiWkjhKjCp+30psrHd429TbURmi5USY2VbwcW2d7TXsFu7jQGhiieltffYKSwhJCqM7FePzMjBxVnR/x0pL5QIWpUOQxCAFDt0bfJp+O7cHuko/UEsBAhQDFAAAAAgAPJdPW/PeO79rAAAAhAAAAAoAAAAAAAAAAAAAAIABAAAAAGluZGV4Lmh0bWxQSwUGAAAAAAEAAQA4AAAAkwAAAAAA">Download App</a></p>
+  </div>
+</section>
+
+<footer class="footer">© <span id="y"></span> Harb Ventures — ItsEco. All rights reserved.</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>
+(function(){
+  function $(s){return document.querySelector(s)}
+  function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+  function fmt(n){return n.toLocaleString(undefined,{maximumFractionDigits:2})}
+
+  var base = {cash: 18.6, runway: 52, varFx: 12.4, hedge: 93};
+  var state = Object.assign({}, base);
+
+  function renderRisk(){
+    $("#kpi-cash").textContent = "$"+fmt(state.cash)+"B";
+    $("#kpi-runway").textContent = fmt(state.runway)+" wks";
+    $("#kpi-var").textContent = "$"+fmt(state.varFx)+"M";
+    $("#kpi-hedge").textContent = fmt(state.hedge)+"%";
+  }
+  function recalcFromControls(){
+    var fx = Number($("#fx").value);
+    var rates = Number($("#rates").value);
+    state.varFx = Math.max(5, base.varFx * (1 + fx/50));
+    state.hedge = Math.max(80, Math.min(99, base.hedge - Math.max(0, rates)/50));
+    state.cash = Math.max(10, base.cash * (1 - Math.max(0, rates)/1000));
+    state.runway = Math.max(8, Math.round(base.runway * (state.cash/base.cash)));
+    renderRisk();
+    $("#fxVal").textContent = fx+"%";
+    $("#rateVal").textContent = rates+" bps";
+  }
+  ["fx","rates"].forEach(id=>{ $("#"+id).addEventListener("input", recalcFromControls)});
+  recalcFromControls();
+
+  $("#deckBtn").addEventListener("click", function(e){
+    e.preventDefault();
+    var txt = "Board Pack (Demo)\n\nCash: $"+fmt(state.cash)+"B\nRunway: "+fmt(state.runway)+" wks\nVaR(FX): $"+fmt(state.varFx)+"M\nHedge: "+fmt(state.hedge)+"%";
+    var blob = new Blob([txt], {type:"text/plain"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "ItsEco_BoardPack_Demo.txt";
+    a.click();
+  });
+
+  $("#sweepBtn").addEventListener("click", function(){
+    var policy = { tBills: $("#p-tbills").checked, ladder: $("#p-ladder").checked, fxNet: $("#p-fxnet").checked };
+    var actions = [];
+    if(policy.tBills) actions.push("Sweep idle USD to T‑Bills");
+    if(policy.ladder) actions.push("Allocate ladder 1/3/6 months");
+    if(policy.fxNet) actions.push("Net EUR exposures monthly");
+    if(actions.length===0) actions.push("No policy selected — dry run only");
+    $("#sweepOut").innerHTML = "<ul><li>"+actions.join("</li><li>")+"</li></ul>";
+  });
+
+  function calcCO2(){
+    var kwh = Number($("#cl-kwh").value||0);
+    var factor = Number($("#cl-factor").value||0.0004);
+    var offset = Number($("#cl-offset").value||0);
+    var tco2 = Math.max(0, kwh*factor - offset);
+    $("#cl-out").textContent = tco2.toFixed(2)+" tCO₂e / month";
+  }
+  ["cl-kwh","cl-factor","cl-offset"].forEach(id=>$("#"+id).addEventListener("input", calcCO2));
+  calcCO2();
+
+  var invoices = [
+    {id:"INV-1001", vendor:"CATL", amt: 125000.00},
+    {id:"INV-1002", vendor:"Bosch", amt: 98000.00},
+    {id:"INV-1003", vendor:"LGES", amt: 50120.55},
+    {id:"INV-1004", vendor:"Panasonic", amt: 77650.10}
+  ];
+  var payments = [
+    {ref:"PMT-874", vendor:"CATL", amt: 125000.00},
+    {ref:"PMT-875", vendor:"LGES", amt: 50120.55},
+    {ref:"PMT-876", vendor:"Panasonic", amt: 78000.00}
+  ];
+  function renderRecon(){
+    $("#inv-body").innerHTML = invoices.map(function(i){ return "<tr><td>"+i.id+"</td><td>"+i.vendor+"</td><td>$"+fmt(i.amt)+"</td></tr>" }).join("");
+    $("#pay-body").innerHTML = payments.map(function(p){ return "<tr><td>"+p.ref+"</td><td>"+p.vendor+"</td><td>$"+fmt(p.amt)+"</td></tr>" }).join("");
+  }
+  renderRecon();
+
+  $("#matchBtn").addEventListener("click", function(){
+    var matched = 0;
+    var rows = document.querySelectorAll("#inv-body tr");
+    rows.forEach(function(row){
+      var vendor = row.children[1].textContent;
+      var amt = Number(row.children[2].textContent.replace(/[$,]/g,""));
+      var found = payments.find(function(p){ return p.vendor===vendor && Math.abs(p.amt-amt)<1 });
+      if(found){ matched++; row.classList.add("match"); } else { row.classList.remove("match"); }
+    });
+    var pct = Math.round(100*matched/invoices.length);
+    $("#matchSummary").textContent = matched+" of "+invoices.length+" matched ("+pct+"%)";
+  });
+
+  var entities = [
+    {name:"US OpCo", bal: 6.0, need: -1.2},
+    {name:"EU GmbH", bal: 3.8, need: -0.3},
+    {name:"JP KK", bal: 1.2, need: 1.0}
+  ];
+  function renderEnt(){
+    $("#ent-body").innerHTML = entities.map(function(e){
+      return "<tr><td>"+e.name+"</td><td>$"+fmt(e.bal)+"B</td><td>"+(e.need>0?"+":"")+fmt(e.need)+"B</td></tr>";
+    }).join("");
+  }
+  renderEnt();
+  $("#optBtn").addEventListener("click", function(){
+    var surplus = entities.filter(function(e){return e.need<0}).reduce(function(s,e){return s+(-e.need)},0);
+    var deficit = entities.filter(function(e){return e.need>0}).reduce(function(s,e){return s+e.need},0);
+    var move = Math.min(surplus, deficit);
+    $("#optOut").innerHTML = "Route ~$"+fmt(move)+"B from surplus entities to deficit entities (demo).";
+  });
+
+  $("#askBtn").addEventListener("click", function(){
+    var q = ($("#ask").value||"").toLowerCase();
+    var a = "I can help with cash, risk, liquidity, ESG, reconciliation, and board packs.";
+    if(q.includes("cash")||q.includes("runway")) a = "Current cash about $"+fmt(state.cash)+"B, runway ~"+fmt(state.runway)+" weeks.";
+    if(q.includes("var")||q.includes("risk")) a = "FX VaR ~ $"+fmt(state.varFx)+"M; hedge effectiveness around "+fmt(state.hedge)+"% (demo).";
+    if(q.includes("esg")||q.includes("carbon")) a = "Carbon Ledger AI tracks kWh × factor minus offsets to estimate tCO₂e and trend reductions.";
+    if(q.includes("vendor")||q.includes("recon")) a = "Smart vendor recon can match >80% by amount/vendor/date and flags partials for review.";
+    if(q.includes("liquidity")||q.includes("routing")) a = "Predictive routing shifts surplus to cover deficits; try the Optimize button above.";
+    $("#ans").textContent = a;
+  });
+
+  $$('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var id = a.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:"smooth"}); }
+    });
+  });
+
+})();</script>
+</body>
+</html>
